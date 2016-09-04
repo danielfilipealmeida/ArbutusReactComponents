@@ -51,7 +51,7 @@
 	var React = __webpack_require__(166),
 	    ReactDom = __webpack_require__(1);
 
-	var Slider = __webpack_require__(172);
+	var Slider = __webpack_require__(172).Slider;
 
 	var App = React.createClass({
 	    displayName: "App",
@@ -70,7 +70,7 @@
 	    }
 	});
 
-	console.log("!!!");
+	console.log(Slider);
 
 	ReactDom.render(React.createElement(
 	    "div",
@@ -21472,25 +21472,30 @@
 	var Slider = function (_React$Component) {
 		_inherits(Slider, _React$Component);
 
-		function Slider() {
+		function Slider(props) {
 			_classCallCheck(this, Slider);
 
-			return _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).apply(this, arguments));
+			console.log(props);
+
+			var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
+
+			_this.title = props.title;
+			_this.value = props.value;
+			return _this;
 		}
 
 		_createClass(Slider, [{
 			key: 'render',
 			value: function render() {
-				console.log(props);
 				return _react2.default.createElement(
 					'div',
 					{ className: 'slider' },
 					_react2.default.createElement(
 						'span',
 						null,
-						props.title
+						this.title
 					),
-					_react2.default.createElement('input', { value: '{props.value}' })
+					_react2.default.createElement('input', { value: this.value })
 				);
 			}
 		}]);
@@ -21498,7 +21503,7 @@
 		return Slider;
 	}(_react2.default.Component);
 
-	exports = Slider;
+	exports.Slider = Slider;
 
 /***/ }
 /******/ ]);

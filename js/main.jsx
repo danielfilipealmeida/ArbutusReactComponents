@@ -2,7 +2,7 @@ var React       = require("react"),
     ReactDom    = require("react-dom");
 
 
-var Slider      = require('./components/Slider');
+var Slider      = require('./components/Slider').Slider;
 
 
 import { render } from 'react-dom';
@@ -22,7 +22,7 @@ var App = React.createClass({
     }
 });
 
-console.log("!!!");
+console.log(Slider);
 
 ReactDom.render(
     <div>
