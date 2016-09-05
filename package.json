@@ -28,7 +28,9 @@
     "path": "~0.12.7",
     "react": "~15.3.1",
     "react-dom": "~15.3.1",
-    "webpack": "~1.13.2"
+    "webpack": "~1.13.2",
+    "bootstrap": "~3.3.7",
+    "jquery": "~3.1.0"
   },
   "devDependencies": {
     "babel-loader": "~6.2.5",

@@ -65,7 +65,7 @@
 	                null,
 	                "Arbutus Components"
 	            ),
-	            React.createElement(Slider, { title: "Alpha", minValue: "0.0", maxValue: "1.0", value: "0.5" })
+	            React.createElement(Slider, { title: "Alpha", minValue: "0.0", maxValue: "1.0", value: "0.5", color: "#888888" })
 	        );
 	    }
 	});
@@ -21481,22 +21481,52 @@
 
 			_this.title = props.title;
 			_this.value = props.value;
+			_this.minValue = props.minValue;
+			_this.maxValue = props.maxValue;
+			_this.color = props.color;
 			return _this;
 		}
 
 		_createClass(Slider, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				this.updateCanvas();
+			}
+		}, {
+			key: 'updateCanvas',
+			value: function updateCanvas() {
+				var ctx = this.refs.canvas.getContext('2d');
+				ctx.fillStyle = this.color;
+
+				// data handling needs to move!
+				// todo: make a math lib. create a clamp function 
+				if (this.value > this.maxValue) value = maxValue;
+				if (this.value < this.minValue) value = minValue;
+
+				var totalAmount = this.maxValue - this.minValue;
+				var percentage = this.value / totalAmount;
+
+				ctx.fillRect(0, 0, this.refs.canvas.width * percentage, this.refs.canvas.height);
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					{ className: 'slider' },
+					{ className: 'UISlider' },
 					_react2.default.createElement(
 						'span',
 						null,
 						this.title
 					),
-					_react2.default.createElement('input', { value: this.value })
+					_react2.default.createElement('canvas', { ref: 'canvas' }),
+					_react2.default.createElement('input', { value: this.value, onChange: this.onChange })
 				);
+			}
+		}, {
+			key: 'onChange',
+			value: function onChange(_val) {
+				console.log(arguments);
 			}
 		}]);
 

@@ -1,0 +1,19 @@
+.UISlider {
+	width:100%;
+}
+
+.UISlider label {
+	width: 33%;
+	display: block;
+}
+
+.UISlider canvas {
+	width: 40%;
+	height: 20px;
+	border: solid 1px #000;
+	border-radius: 4px;
+}
+
+.UISlider input {
+	width: 60px;
+}

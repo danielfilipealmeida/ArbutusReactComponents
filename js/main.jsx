@@ -16,7 +16,7 @@ var App = React.createClass({
         return (
             <div>
                 <h1>Arbutus Components</h1>
-                <Slider title="Alpha" minValue="0.0" maxValue="1.0" value="0.5" />
+                <Slider title="Alpha" minValue="0.0" maxValue="1.0" value="0.5" color="#888888" />
             </div>
         );
     }
