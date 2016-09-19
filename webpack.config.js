@@ -7,6 +7,7 @@ var APP_DIR = path.resolve(__dirname, 'js/');
 
 
 module.exports = {
+	cache: false,
 	resolve: {
 		extensions: ['','.js', '.jsx']
 	},
@@ -18,13 +19,24 @@ module.exports = {
 		path: BUILD_DIR,
 		filename: 'bundle.js'
 	},
+	/*
+	plugins: [
+          new webpack.DllReferencePlugin({
+              context: path.join(__dirname, "js"),
+              manifest: require("./build/dll/ArbutusComponents-manifest.json")
+          }),
+	],
+	*/
 	module: {
 		loaders: [
 			{
 				test: /\.jsx?$/,
 				exclude: /node_modules/,
 				include: APP_DIR,
-				loader: 'babel'
+				loader: 'babel',
+				query: {
+					cacheDirectory: false
+				}
 			},
 			{
 				test: /\.html$/,
